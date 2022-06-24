@@ -1,10 +1,11 @@
 from msilib.schema import Class, ListView
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import  TemplateView, CreateView,DetailView,UpdateView
+from django.views.generic import  TemplateView, CreateView,DetailView,UpdateView,ListView
+from .models import Post
 # Create your views here.
 class PostListView(ListView):
-    model = Post 
+    model = Post   
 class PostCreateView(CreateView):
     model = Post
     fields= '__all__'
@@ -16,6 +17,8 @@ class PostUpdateView(UpdateView):
     fields = '__all__'
     success_url  = reverse_lazy('blog:all')
 class  PostDeleteView(UpdateView):
-    odel = Post
+    model = Post
     fields = '__all__'
     success_url  = reverse_lazy('blog:all')
+
+  
